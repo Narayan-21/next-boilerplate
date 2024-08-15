@@ -1,7 +1,9 @@
-'use client';
 
 // Make the component a client component - if - using something that server do not understand(useEffect, useState, onClick...etc)
 // Or the error pops up telling us to create a client component.
+// More Reading - https://github.com/vercel/next.js/discussions/43153
+
+import ButtonComponent from "./Button";
 
 
 interface LabelledInputType {
@@ -36,7 +38,7 @@ export const SigninComponent = () => {
                     <div className="pt-2">
                         <LabelledInput label="Username" placeholder="narine@gmail.com" />
                         <LabelledInput label="Password" type={"password"} placeholder="narine@1234" />
-                        <button onClick={buttonHandler} type="button" className="mt-8 w-full text-white bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Sign in</button>
+                        <ButtonComponent title="Sign in"/>
                     </div>
                 </div>
             </a>
