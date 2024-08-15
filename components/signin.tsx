@@ -1,3 +1,8 @@
+'use client';
+
+// Make the component a client component - if - using something that server do not understand(useEffect, useState, onClick...etc)
+// Or the error pops up telling us to create a client component.
+
 
 interface LabelledInputType {
     label: string;
@@ -8,9 +13,15 @@ interface LabelledInputType {
 function LabelledInput({ label, placeholder, type }: LabelledInputType) {
     return <div>
         <label className="block mb-2 text-sm text-black font-semibold pt-4">{label}</label>
-        <input type={type || "text"} id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder={placeholder} required />
+        <input type={type || "text"} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder={placeholder} required />
     </div>
 }
+
+function buttonHandler() {
+    console.log("Clicked!!")
+}
+
+
 
 export const SigninComponent = () => {
     return <div className="h-screen flex justify-center flex-col">
@@ -25,7 +36,7 @@ export const SigninComponent = () => {
                     <div className="pt-2">
                         <LabelledInput label="Username" placeholder="narine@gmail.com" />
                         <LabelledInput label="Password" type={"password"} placeholder="narine@1234" />
-                        <button type="button" className="mt-8 w-full text-white bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Sign in</button>
+                        <button onClick={buttonHandler} type="button" className="mt-8 w-full text-white bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Sign in</button>
                     </div>
                 </div>
             </a>
